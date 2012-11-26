@@ -7,9 +7,9 @@ use Alfredo\Payload\Pdf\Convert;
 
 $server  = new Server('http://pdfapi.lokaal/app_dev.php');
 $payload = new Convert();
+$payload->setConverter('htmltopdfjava');
 $payload
-        ->addHtml('asdfasdfasdfasdfasdfasfdasdf', array('layout' => 'landscape'))
-        ->addPdf(file_get_contents('test/test.pdf'));
+        ->addHtml(file_get_contents('test/temp/flap.html'));
 try {
     $data = $server->stream($payload);
     header('Content-type: application/pdf');
