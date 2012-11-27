@@ -7,5 +7,5 @@ use Alfredo\Payload\PayloadAbstract;
 interface TypeInterface
 {
 
-    public function sendPayload($url, PayloadAbstract $payload);
+    public function sendPayload($url, PayloadAbstract $payload, array $headers = array());
 }
