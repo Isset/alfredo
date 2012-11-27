@@ -56,9 +56,14 @@ class Server
         }
     }
 
-    private function getToken()
+    public function setToken($token)
     {
-        if ($this->token) {
+        $this->token = $token;
+    }
+
+    public function getToken($reGet = false)
+    {
+        if ($this->token && !$reGet) {
             return $this->token;
         }
         $response = $this->interface->sendPayload($this->api . 'login', $this->loginPayload);
