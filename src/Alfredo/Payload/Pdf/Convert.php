@@ -9,7 +9,7 @@ class Convert extends PayloadAbstract
 
     public function __construct()
     {
-        $this->setConverter('wkhtmltopdf');
+        $this->setConverter('htmltopdfjava');
     }
 
     /**
