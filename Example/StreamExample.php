@@ -8,7 +8,9 @@ use Alfredo\Payload\Pdf\Convert;
 $server  = new Server('http://converter.isset.nl', 'c29e794de76c0690ba09c610bfb05ea1f85c343c', 'bbec6637426a9ec44d4b609aac44a1ff42809609');
 $payload = new Convert();
 $payload
-        ->addHtml(file_get_contents('test/test.html'));
+        ->addHtml(file_get_contents('test/test.html'))
+        ->addUrl('http://isset.nl/nl/home');
+
 try {
     $data = $server->stream($payload);
     header('Content-type: application/pdf');
