@@ -22,7 +22,7 @@ class Server
 
     public function __construct($api, $consumerKey, $privateKey, TypeInterface $interface = null)
     {
-        $this->tokenPath = __DIR__ . '/Cache/token';
+        $this->tokenPath = __DIR__ . '/Cache/' . $consumerKey . '-token';
         $this->api       = rtrim($api, '/') . '/';
         if (empty($interface)) {
             $this->interface = new CurlPost();
