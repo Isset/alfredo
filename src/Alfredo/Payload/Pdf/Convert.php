@@ -10,6 +10,7 @@ class Convert extends PayloadAbstract
     public function __construct()
     {
         $this->setConverter('htmltopdfjava');
+        $this->setSetting('packer', 'pdftk');
     }
 
     /**
@@ -20,6 +21,9 @@ class Convert extends PayloadAbstract
      */
     public function addHtml($html, array $options = array())
     {
+        if (!isset($options['htmlentities'])) {
+            $options['htmlentities'] = true;
+        }
         return $this->addData($html, 'html', $options);
     }
 
@@ -38,13 +42,16 @@ class Convert extends PayloadAbstract
      *
      * @param type $data
      * @param array $options
-     * @return ConvertPayload
+     * @return Convert
      */
     public function addPdf($data, array $options = array())
     {
         if (empty($options['encoding'])) {
             $options['encoding'] = 'base64';
             $data                = base64_encode($data);
+        }
+        if (empty($options['converter'])) {
+            $options['converter'] = false;
         }
         return $this->addData($data, 'pdf', $options);
     }

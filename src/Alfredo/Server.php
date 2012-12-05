@@ -32,17 +32,17 @@ class Server
 
     public function queue(PayloadAbstract $payload)
     {
-        return $this->sendRequest($this->api . 'queue/add', $payload);
+        return $this->sendRequest($this->api . 'api/queue/add', $payload);
     }
 
     public function stream(PayloadAbstract $payload)
     {
-        return $this->sendRequest($this->api . 'stream', $payload);
+        return $this->sendRequest($this->api . 'api/stream', $payload);
     }
 
     public function getQueueItem(PayloadAbstract $payload)
     {
-        return $this->sendRequest($this->api . 'queue/get', $payload);
+        return $this->sendRequest($this->api . 'api/queue/get', $payload);
     }
 
     private function sendRequest($url, PayloadAbstract $payload)
@@ -66,7 +66,8 @@ class Server
         if ($this->token && !$reGet) {
             return $this->token;
         }
-        $response = $this->interface->sendPayload($this->api . 'login', $this->loginPayload);
+        $response = $this->interface->sendPayload($this->api . 'api/login', $this->loginPayload);
+
         if ($response->getStatusCode() == 200) {
             $token       = json_decode($response->getContent());
             return $this->token = $token->token;
