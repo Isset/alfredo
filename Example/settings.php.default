@@ -1,0 +1,7 @@
+<?php
+
+return array(
+    'url' => 'http://converter.isset.nl/',
+    'consumerKey' => '',
+    'secretKey' => ''
+);
