@@ -34,12 +34,12 @@ class Server
 
     public function queue(PayloadAbstract $payload)
     {
-        return $this->sendRequest($this->api . 'api/queue/add', $payload);
+        return $this->sendRequest($this->api . 'api/queue/add/' . $payload->getType(), $payload);
     }
 
     public function stream(PayloadAbstract $payload)
     {
-        return $this->sendRequest($this->api . 'api/stream', $payload);
+        return $this->sendRequest($this->api . 'api/stream/' . $payload->getType(), $payload);
     }
 
     public function getQueueItem(PayloadAbstract $payload)

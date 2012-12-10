@@ -21,11 +21,12 @@ class Login extends PayloadAbstract
         $this->setSetting('time', $time);
         $this->setSetting('hash', crypt($time . '' . $this->privateKey . '' . $this->consumerKey, '$2a$07$' . $this->consumerKey . '$'));
 
-
-
-        
-
         return parent::getPayload();
+    }
+
+    public function getType()
+    {
+        return 'login';
     }
 
 }

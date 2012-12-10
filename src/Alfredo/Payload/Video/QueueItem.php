@@ -1,6 +1,6 @@
 <?php
 
-namespace Alfredo\Payload\Pdf;
+namespace Alfredo\Payload\Video;
 
 use Alfredo\Payload\PayloadAbstract;
 
@@ -15,7 +15,7 @@ class QueueItem extends PayloadAbstract
 
     public function getType()
     {
-        return 'pdf';
+        return 'video';
     }
 
 }

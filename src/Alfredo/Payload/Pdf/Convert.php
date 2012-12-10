@@ -55,24 +55,10 @@ class Convert extends PayloadAbstract
         }
         return $this->addData($data, 'pdf', $options);
     }
-    /**
-     *
-     * @param string $url
-     * @return Convert
-     */
-    public function setCallBack($url)
-    {
-        return $this->setSetting('callback', $url);
-    }
 
-    /**
-     *
-     * @param string $converter
-     * @return Convert
-     */
-    public function setConverter($converter)
+    public function getType()
     {
-        return $this->setSetting('converter', $converter);
+        return 'pdf';
     }
 
 }

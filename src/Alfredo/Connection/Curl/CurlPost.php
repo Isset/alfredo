@@ -12,6 +12,7 @@ class CurlPost implements TypeInterface
     {
         $ch = curl_init($url);
         curl_setopt($ch, CURLOPT_POST, 1);
+
         curl_setopt($ch, CURLOPT_POSTFIELDS, $this->payloadToPost($payload->getPayload()));
         curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
         if (!empty($headers)) {
@@ -35,9 +36,9 @@ class CurlPost implements TypeInterface
             if (is_array($value) || is_object($value)) {
                 $value  = json_encode($value);
             }
-            $post[] = $key . '=' . urlencode($value);
+            $post[$key] = $value;
         }
-        return implode('&', $post);
+        return $post;
     }
 
 }
