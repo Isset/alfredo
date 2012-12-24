@@ -29,8 +29,8 @@ class Callback
 
         $entity->setReceived(new \DateTime);
         $entity->setSuccess($data['status'] == 'success');
-        $this->db->save($entity);
         $interface->callback($entity);
+        $this->db->save($entity);
         if ($echo) {
             echo '[success]';
         }
