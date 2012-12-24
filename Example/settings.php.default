@@ -3,5 +3,10 @@
 return array(
     'url' => 'http://converter.isset.nl/',
     'consumerKey' => '',
-    'secretKey' => ''
+    'secretKey' => '',
+    'database' => array(
+        'dsn' => 'mysql:dbname=alfredo;host=localhost',
+        'username' => 'root',
+        'password' => null,
+    )
 );
