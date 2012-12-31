@@ -26,6 +26,11 @@ abstract class PayloadAbstract
         return $this->payload;
     }
 
+    public function addIdentifier($identifier, array $options = array()){
+        $this->addData($identifier, 'identifier', $options);
+        return $this;
+    }
+
     /**
      *
      * @param string $url

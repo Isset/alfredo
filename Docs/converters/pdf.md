@@ -79,6 +79,12 @@ Examples
 
 Examples for pdf are available in /Example/Pdf/
 
+Pitfalls
+________
+
+All entities have to be htmlentities(and be converted in the api) or utf encoded.
+For example converting will fail if  & is used instead of &amp; or the utf8 equivalent 
+
 
 
 
