@@ -61,7 +61,7 @@ class Server
             unlink($this->tokenPath);
         }
 
-        throw new Exception($response->getContent());
+        throw new ConversionUnableException($response->getContent());
     }
 
     public function setToken($token)
