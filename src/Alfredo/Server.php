@@ -22,13 +22,9 @@ class Server
 
     public function __construct($api, $consumerKey, $privateKey, TypeInterface $interface = null)
     {
-        $this->tokenPath = __DIR__ . '/Cache/' . $consumerKey . '-token';
-        $this->api       = rtrim($api, '/') . '/';
-        if (empty($interface)) {
-            $this->interface = new CurlPost();
-        } else {
-            $this->interface    = $interface;
-        }
+        $this->tokenPath    = __DIR__ . '/Cache/' . $consumerKey . '-token';
+        $this->api          = rtrim($api, '/') . '/';
+        $this->interface    = $interface ?: new CurlPost;
         $this->loginPayload = new Payload\Login($consumerKey, $privateKey);
     }
 
@@ -53,11 +49,14 @@ class Server
         /* @var $response Alfredo\Connection\ResponseInterface */
         if ($response->getStatusCode() == 200) {
             return $response->getContent();
-        } else if ($response->getStatusCode() == 403) {
+        }
+        
+        if ($response->getStatusCode() == 403) {
             if (!$retried) {
                 $this->getToken(true);
                 return $this->sendRequest($url, $payload, true);
             }
+            
             unlink($this->tokenPath);
         }
 
@@ -74,6 +73,7 @@ class Server
         if ($this->token && !$reGet) {
             return $this->token;
         }
+        
         if (file_exists($this->tokenPath) && !$reGet) {
             return $this->token = file_get_contents($this->tokenPath);
         }
@@ -84,9 +84,9 @@ class Server
             $token       = json_decode($response->getContent());
             file_put_contents($this->tokenPath, $token->token);
             return $this->token = $token->token;
-        } else {
-            throw new \Exception($response->getContent());
         }
+        
+        throw new \Exception($response->getContent());
     }
 
 }
