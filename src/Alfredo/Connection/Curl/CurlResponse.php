@@ -6,7 +6,6 @@ use Alfredo\Connection\ResponseInterface;
 
 class CurlResponse implements ResponseInterface
 {
-
     private $content;
     private $statusCode;
 
@@ -35,5 +34,4 @@ class CurlResponse implements ResponseInterface
     {
         $this->content = $content;
     }
-
 }

@@ -4,7 +4,6 @@ namespace Alfredo\Callback;
 
 class Entity
 {
-
     protected $id;
     protected $identifier;
     protected $send;
@@ -76,5 +75,4 @@ class Entity
     {
         return $this->success;
     }
-
 }

@@ -4,7 +4,6 @@ namespace Alfredo\Payload;
 
 class Login extends PayloadAbstract
 {
-
     private $consumerKey;
     private $privateKey;
 
@@ -28,5 +27,4 @@ class Login extends PayloadAbstract
     {
         return 'login';
     }
-
 }

@@ -6,7 +6,6 @@ use Alfredo\Payload\PayloadAbstract;
 
 class Convert extends PayloadAbstract
 {
-
     private $counter = 0;
 
     public function __construct()
@@ -25,5 +24,4 @@ class Convert extends PayloadAbstract
     {
         return 'video';
     }
-
 }

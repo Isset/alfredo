@@ -85,7 +85,7 @@ class Server
             file_put_contents($this->tokenPath, $token->token);
             return $this->token = $token->token;
         } else {
-            throw new Exception($response->getContent());
+            throw new \Exception($response->getContent());
         }
     }
 

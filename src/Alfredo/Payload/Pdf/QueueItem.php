@@ -6,7 +6,6 @@ use Alfredo\Payload\PayloadAbstract;
 
 class QueueItem extends PayloadAbstract
 {
-
     public function setIdentifier($identifier)
     {
         $this->setSetting('identifier', $identifier);
@@ -17,5 +16,4 @@ class QueueItem extends PayloadAbstract
     {
         return 'pdf';
     }
-
 }

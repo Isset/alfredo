@@ -7,7 +7,6 @@ use Alfredo\Payload\PayloadAbstract;
 
 class CurlPost implements TypeInterface
 {
-
     public function sendPayload($url, PayloadAbstract $payload, array $headers = array())
     {
         $ch = curl_init($url);
@@ -40,5 +39,4 @@ class CurlPost implements TypeInterface
         }
         return $post;
     }
-
 }

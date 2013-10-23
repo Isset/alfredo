@@ -1,14 +1,20 @@
 {
-    "name": "fhjbalfoort/alfredo",
+    "name": "isset/alfredo",
     "type": "library",
     "description": "Alfredo for PHP 5.3",
     "authors": [
-    {
-        "name": "Felix Balfoort",
-        "email": "fhjbalfoort@gmail.com",
-        "homepage": "http://fhjbalfoort.nl/",
-        "role": "Developer"
-    }
+        {
+            "name": "Felix Balfoort",
+            "email": "fhjbalfoort@gmail.com",
+            "homepage": "http://fhjbalfoort.nl/",
+            "role": "Developer"
+        },
+        {
+            "name": "Mitchell van Wijngaarden",
+            "email": "hey@mitchellvanwijngaarden.nl",
+            "homepage": "http://mitchellvanwijngaarden.nl",
+            "role": "Developer"
+        }
     ],
     "require": {
         "php": ">=5.3.0"

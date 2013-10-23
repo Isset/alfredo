@@ -6,7 +6,6 @@ use Alfredo\Payload\PayloadAbstract;
 
 class Convert extends PayloadAbstract
 {
-
     public function __construct()
     {
         $this->setConverter('htmltopdfjava');
@@ -60,5 +59,4 @@ class Convert extends PayloadAbstract
     {
         return 'pdf';
     }
-
 }

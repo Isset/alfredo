@@ -4,7 +4,6 @@ namespace Alfredo\Payload;
 
 abstract class PayloadAbstract
 {
-
     protected $payload = array();
 
     abstract function getType();
@@ -50,5 +49,4 @@ abstract class PayloadAbstract
     {
         return $this->setSetting('converter', $converter);
     }
-
 }
